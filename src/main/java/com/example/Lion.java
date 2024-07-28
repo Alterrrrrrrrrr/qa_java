@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Lion {
 
-    boolean hasMane;
+    public boolean hasMane;
 
     public Lion(String sex) throws Exception {
         if ("Самец".equals(sex)) {
@@ -16,7 +16,14 @@ public class Lion {
         }
     }
 
-    Feline feline = new Feline();
+    // убираем зависимость в конструктор
+    // Feline feline = new Feline();
+
+    private Feline feline;
+
+    public Lion(Feline feline) {
+        this.feline = feline;
+    }
 
     public int getKittens() {
         return feline.getKittens();
