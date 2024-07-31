@@ -8,6 +8,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 @RunWith(MockitoJUnitRunner.class)
 
@@ -21,14 +22,16 @@ Feline feline;
     List<String> expectedEatMeatResult = List.of("Животные", "Птицы", "Рыба");
 
     Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-try {
+
     List<String> actualEatMeatResult = feline.eatMeat();
 
     assertEquals(expectedEatMeatResult, actualEatMeatResult);
 }
-catch (Exception exception) {
-    System.out.println("Incorrect animalKind");
-}
+
+@Test
+        public void eatMeatTestReturnException() throws Exception {
+
+    assertThrows("Incorrect animalKind", Exception.class, () -> feline.getFood("Человек"));
     }
 
 @Test

@@ -1,3 +1,4 @@
+import com.example.Feline;
 import com.example.Lion;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,23 +22,17 @@ public class LionDoesHaveManeTest {
     public static Object[][] getParamsLionManeTest() {
         return new Object[][]{
                 {"Самец", true},
-                {"Самка", false},
-                {"Небинариха", false}
+                {"Самка", false}
         };
     }
 
     @Test
     public void checkResult() throws Exception {
-        try {
-            Lion lion = new Lion(sex);
+        Feline feline = new Feline();
 
-            boolean actualResult = lion.doesHaveMane();
+        Lion lion = new Lion(sex, feline);
 
-            assertEquals(expected, actualResult);
-        }
-        catch (Exception exception) {
-            System.out.println("sex = " + sex);
-            System.out.println("Используйте допустимые значения пола животного - самец или самка");
-        }
-        }
+        boolean actualResult = lion.doesHaveMane();
+
+        assertEquals(expected, actualResult);}
 }
