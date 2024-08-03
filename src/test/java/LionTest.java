@@ -34,16 +34,13 @@ Feline feline;
     public void getFoodLionTestReturnCorrectValue() throws Exception {
     Lion lion = new Lion("Самка", feline);
     List<String> getFoodExpectedResult = List.of("Животные", "Птицы", "Рыба");
-try {
+
     Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
 
     List<String> getFoodActualResult = lion.getFood();
 
     assertEquals(getFoodExpectedResult, getFoodActualResult);
-}
-catch (Exception exception) {
-    System.out.println("Exception occurred in method getFoodLionTestReturnCorrectValue");
-}
+
 }
 
 @Test
